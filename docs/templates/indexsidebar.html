@@ -1,0 +1,11 @@
+<h3>Download</h3>
+{% if version.endswith('(hg)') %}
+<p>This documentation is for version <b>{{ version }}</b>, which is
+  not released yet.</p>
+{% else %}
+<p>Current version: <b>{{ version }}</b></p>
+<p>Get BiBench:
+<br/>
+<a href="http://bmi.osu.edu/hpc/software/BiBench-0.1.tar.gz">BiBench-0.1.tar.gz </a>
+</p>
+{% endif %}

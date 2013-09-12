@@ -1,0 +1,91 @@
+/*SECOND: FONT INFORMATION*/
+
+/* body { font:76% Verdana,Tahoma,sans-serif;} */
+/* a{font-weight:bold; text-decoration:none;} */
+/* a:hover { text-decoration:underline;} */
+
+/* #leftside h1{ font-size:1.6em; letter-spacing:-2px;} */
+/* #leftside h2, #leftside h3 {font-size:1.1em; font-weight:bold; letter-spacing:-1px; text-align:right;} */
+/* #leftside p { font-size:0.8em;} */
+
+/* #menu a {font-size:1.6em; font-weight:normal; text-decoration:none; letter-spacing:-1px;} */
+
+/* #extras h2, #extras h3 {font-size:1.6em; font-weight:400; letter-spacing:-1px; } */
+
+/* #content h1{  font-size:3.6em; letter-spacing:-4px;} */
+/* #content h2 {font-weight:normal; font-size:2em; letter-spacing:-1px;} */
+/* #content h3 { font-weight:normal; font-size: 1.6em; letter-spacing:-1px;} */
+
+/* .Publication {font-family:serif;} */
+
+/* .PubConf, .PubAbs, .PubJour, .PubRep{font-weight:bold;} */
+
+
+
+
+/*THIRD: COLOR INFORMATION */
+
+
+body{ color:#404040;}
+img{background-color:#ffffff; border-color : #d0d0d0;}
+a {color:#d85d5d;}
+a:hover {color:#505050;}
+a img,a img:hover {border-color:#d85d5d;}
+a img:hover {background-color:#d85d5d; }
+
+div.related ul li a {
+color: #D85D5D;
+}
+
+#leftside h1{color:#d85d5d;}
+#leftside h2, #leftside h3, #leftside a {color:#808080;}
+#leftside h3, #leftside p{color:#606060;}
+
+#menu a {color:#606060; }
+#menu a:hover {color:#303030; background:#f0f0f0;}
+
+#menu a.active:hover {color:#505050; background:#fafafa;}
+
+#extras {color:#666;}
+
+#extras h2, #extras h3 {color:#606060;  border-color: #b0b0b0;}
+
+
+#content{background-color:#fafafa; border-color: #c0c0c0;}
+
+
+#content h1, #content h3{ color:#d85d5d; }
+#content h2 {color:#808080; }
+
+
+.PubConf{color:#33CC33;}
+.PubAbs{color:#48d1cc;}
+.PubJour{color:#9933FF;}
+.PubRep{color:#FF9933;}
+
+.grants h4 {color:#d85d5d; margin-bottom:0;}
+
+body, #menu a, #leftside{background-color:#e3e3e3;}
+
+#menu a.active {background-color: #c0c0c0;}
+
+/*rotate link*/
+
+#rotateFrame
+{
+    margin-top: 1em;
+    height: 17em;
+    text-align: center;
+}
+
+#titletext, #rotatelink, #rotateimg, #rotateFrame a
+
+{
+    margin: 0;
+    padding: 0;
+}
+
+#titletext
+{
+    border: 1px black;
+}

@@ -1,0 +1,257 @@
+Metadata-Version: 1.0
+Name: BiBench
+Version: 0.1
+Summary: Biclustering framework
+Home-page: UNKNOWN
+Author: Kemal Eren, Mehmet Deveci, Umit Catalyurek
+Author-email: ekemal@bmi.osu.edu, mdeveci@bmi.osu.edu, umit@bmi.osu.edu
+License: GPL license, see LICENSE
+Description: ####################################################################
+        ###     ____  _ ____                  _                          ###
+        ###    | __ )(_) __ )  ___ _ __   ___| |__                       ###
+        ###    |  _ \| |  _ \ / _ \ '_ \ / __| '_ \                      ###
+        ###    | |_) | | |_) |  __/ | | | (__| | | |                     ###
+        ###    |____/|_|____/ \___|_| |_|\___|_| |_|                     ###
+        ###                                                              ###
+        ###--------------------------------------------------------------###
+        ###                                                              ###
+        ### This file is part of the BiBench package for biclustering    ###
+        ### analysis.                                                    ###
+        ###                                                              ###
+        ### Copyright (c) 2011 by:                                       ###
+        ###   * Kemal Eren,                                              ###
+        ###   * Mehmet Deveci,                                           ###
+        ###   * Umit V. Catalyurek                                       ###
+        ###                                                              ###
+        ###--------------------------------------------------------------###
+        ###                                                              ###
+        ### For license info, please see the README and LICENSE files    ###
+        ### in the main directory.                                       ###
+        ###                                                              ###
+        ###--------------------------------------------------------------###
+        
+        =======================
+        Introduction to BiBench
+        =======================
+        
+        BiBench is a Python library designed to simplify biclustering tasks. It
+        provides the following features:
+        
+        * Supports many biclustering algorithms, and it is easy to add more.
+        * Download gene expression data from the Gene Expression Omnibus.
+        * Gene Ontology enrichment analysis.
+        * Synthetic dataset generation.
+        * Data transformation.
+        * Results validation and visualization.
+        
+        Typical usage often looks like this::
+        
+        > import bibench.all as bb         # import most commonly used functions
+        > data = bb.get_gds_data('GDS181') # download gene expression dataset GDS181
+        > data = bb.pca_impute(data)       # impute missing values
+        > biclusters = bb.plaid(data)      # cluster with Plaid algorithm
+        > bb.enrichment(biclusters[0])     # Gene Ontology enrichment analysis
+        
+        -------
+        Authors
+        -------
+        
+        * Kemal Eren, <ekemal@bmi.osu.edu>
+        * Mehmet Deveci, <mdeveci@bmi.osu.edu>
+        * Umit Catalyurek, <umit@bmi.osu.edu>
+        
+        -------
+        Contact
+        -------
+        
+        If you have comments or questions, or if you would like to contribute
+        to BiBench, please send us an email at hpc@bmi.osu.edu.
+        
+        
+        ============
+        Installation
+        ============
+        
+        Instructions for installing BiBench and its dependencies. BiBench is
+        written for Python 2. It has been tested with both Python 2.6 and 2.7.
+        
+        ----------------------
+        Installation Procedure
+        ----------------------
+        
+        ++++++++++++++++++++++++++++++++
+        Automatic Installation with pip
+        ++++++++++++++++++++++++++++++++
+        
+        `pip <http://pypi.python.org/pypi/pip>`_ and `virtualenv
+        <http://pypi.python.org/pypi/virtualenv>`_ are currently the best way
+        to install and manage Python packages. This method is also recommended
+        because pip should automatically install BiBench's
+        dependencies. (Note: One of BiBench's dependencies is rpy2, which
+        requires that `R <http://www.r-project.org/>`_ be installed. Also, R
+        must have been built as a library. i.e., configured with
+        ``--enable-R-shlib``. If you want pip to install BiBench without
+        installing dependencies, use ``pip install --no-deps`` in the
+        following steps).
+        
+        Install pip. If necessary, you can use pip to install virtualenv and
+        virtualenvwrapper::
+        
+        pip install virtualenv virtualenvwrapper
+        
+        To create a new virtual environment called bibench_env and install
+        BiBench and its dependencies to it::
+        
+        mkvirtualenv --no-site-packages bibench_env
+        pip install http://bmi.osu.edu/hpc/software/bibench/BiBench-0.1.tar.gz
+        
+        Pip can also install from a local package::
+        
+        wget http://bmi.osu.edu/hpc/software/bibench/BiBench-0.1.tar.gz
+        pip install BiBench-0.1.tar.gz
+        
+        BiBench is now installed and ready to go.
+        
+        The BiBench package is now installed into its own virtual environment,
+        ``bibench_env``, which is an isolated Python environment. So before
+        using BiBench you must switch to that environment::
+        
+        workon bibench_env
+        
+        When you are done working in that environment, simply run the
+        deactivate command::
+        
+        deactivate
+        
+        
+        +++++++++++++++++++
+        Manual installation
+        +++++++++++++++++++
+        
+        BiBench is packaged using `distutils
+        <http://docs.python.org/library/distutils.html>`_.  To install BiBench
+        manually, simply download it, unpack it, and run the distutils setup
+        script::
+        
+        wget http://bmi.osu.edu/hpc/software/bibench/BiBench-0.1.tar.gz
+        tar xzf BiBench-0.1.tar.gz
+        cd BiBench-0.1
+        python setup.py install
+        
+        
+        +++++++++++++++++++++++++++
+        Building the documentation
+        +++++++++++++++++++++++++++
+        
+        This documentation may be compiled into a number of formats, using
+        sphinx. To generate html::
+        
+        make html
+        
+        For a list of all possible targets, run::
+        
+        make help
+        
+        ------------
+        Dependencies
+        ------------
+        
+        The BiBench package is now installed, but most of its functionality
+        will not be available until extra dependencies are available.
+        
+        In particular, BiBench does not provide implementations for biclustering algorithms; they must be installed seperately.
+        
+        +++++++++++++++++++
+        Python Dependencies
+        +++++++++++++++++++
+        
+        * `NumPy <http://numpy.scipy.org/>`_
+        * `rpy2 <http://rpy.sourceforge.net/rpy2.html>`_
+        * `decorator <http://pypi.python.org/pypi/decorator>`_
+        * `nose <code.google.com/p/python-nose/>`_ (optional: for running unit tests)
+        * `sphinx <http://sphinx.pocoo.org/>`_ (optional: to make the documentation)
+        
+        If you install BiBench using pip, you should not need to install these
+        packages manually; pip should automatically handle dependencies.
+        
+        If you chose not to install BiBench's dependencies before, you can install them with pip::
+        
+        pip install numpy rpy2
+        
+        To install optional dependencies simply run::
+        
+        pip install nose sphinx
+        
+        
+        ++++++++++++++
+        R Dependencies
+        ++++++++++++++
+        
+        Some algorithms that BiBench supports are available as packages for R;
+        BiBench also relies on R for some visualization methods and other
+        functionality. To communicate with R, the Python package rpy2 must be
+        installed.
+        
+        `R <http://www.r-project.org/>`_ must be compiled as a shared library
+        using ``--enable-R-shlib``. Assuming that R is installed, the
+        following commands in R should install all of BiBench's dependencies::
+        
+        install.packages(c('biclust', 'isa2', 'MASS'))
+        source("http://bioconductor.org/biocLite.R")
+        biocLite(c('fabia',
+        'GEOquery',
+        'GEOmetadb',
+        'GOstats',
+        'GO.db',
+        'multtest',
+        'pcaMethods'))
+        
+        The the rest of this section provides links to those dependencies.
+        
+        The following may be installed with the R command ``install.packages()``:
+        
+        * `biclust <cran.r-project.org/package=biclust>`_
+        * `isa2 <http://cran.r-project.org/web/packages/isa2/index.html>`_
+        * `MASS <http://cran.r-project.org/web/packages/MASS/index.html>`_
+        
+        The rest of the packages require `Bioconductor
+        <http://www.bioconductor.org/>`_. Here are the `installation
+        directions <http://www.bioconductor.org/install/>`_ for Bioconductor
+        and its packages.
+        
+        * `fabia <http://www.bioconductor.org/packages/release/bioc/html/fabia.html>`_
+        
+        For downloading GDS data:
+        
+        * `GEOquery <http://www.bioconductor.org/packages/1.8/bioc/html/GEOquery.html>`_
+        * `GEOmetadb <http://www.bioconductor.org/packages/2.2/bioc/html/GEOmetadb.html>`_
+        
+        For gene ontology enrichment analysis:
+        
+        * `GOstats <http://www.bioconductor.org/packages/release/bioc/html/GOstats.html>`_
+        * `GO.db <http://www.bioconductor.org/packages/release/data/annotation/html/GO.db.html>`_
+        * `multtest <http://www.bioconductor.org/packages/release/bioc/html/multtest.html>`_
+        * The correct `AnnotationData <http://www.bioconductor.org/packages/2.6/data/annotation/>`_ package for your organism.
+        
+        For missing data imputation:
+        
+        * `pcaMethods <http://www.bioconductor.org/packages/1.9/bioc/html/pcaMethods.html>`_
+        
+        
+        ++++++++++++++++++++++++++++
+        Other Algorithm Dependencies
+        ++++++++++++++++++++++++++++
+        
+        These algorithms are not available for R or Python. They must be
+        manually built and installed, and their binaries must be available on
+        the PATH, in order for the appropriate module in
+        ``bibench.algorithms`` to work.
+        
+        * `BBC <http://www.people.fas.harvard.edu/~junliu/BBC/>`_
+        * `COALESCE <http://huttenhower.sph.harvard.edu/sleipnir/>`_ (as part of the Sleipnir software)
+        * `CPB <http://bmi.osu.edu/hpc/software/cpb>`_
+        * `OPSM <http://bmi.osu.edu/hpc/software/OPSM.tar.gz>`_ (modified for command-line use from `BicAT <http://www.tik.ethz.ch/sop/bicat/>`_)
+        * `QUBIC <http://csbl.bmb.uga.edu/~maqin/bicluster/>`_
+        
+Keywords: biclustering
+Platform: UNKNOWN
