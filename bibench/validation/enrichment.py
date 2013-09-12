@@ -42,7 +42,8 @@ TODO:
 
 import rpy2
 from rpy2 import robjects
-from rpy2.interactive import importr
+#from rpy2.interactive import importr # WAD: this does not seem to be the correct way to get to importr anymore
+from rpy2.robjects.packages import importr # WAD: this works for me
 from rpy2.rinterface import RRuntimeError
 from collections import namedtuple
 from bibench.rutil import get_bioclite
